@@ -1,2 +1,2 @@
 # HackerDuck
-DS&amp;A Questions
+Data Structures and Algorithms Questions
