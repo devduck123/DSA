@@ -51,8 +51,13 @@ public class singleNum {
     static int getSingleNumC(int[] arr) {
         Map<Integer, Integer> numMap = new HashMap<>();
         for (int i = 0; i < arr.length; i++) {
-            numMap.put(arr[i], count(arr[i], arr));
+            Integer counter = numMap.get(arr[i]); // get count of current number
+            if (counter == null) {     
+                counter = 0;
+            }
+            numMap.put(arr[i], counter+1); // if key occurred, reference previous_count+1, otherwise assign 0+1
         }
+
         // found this "iterating of Map" from geeksforgeeks
         for (Map.Entry<Integer, Integer> entry : numMap.entrySet()) {
             if (entry.getValue() == 1) {
@@ -60,15 +65,5 @@ public class singleNum {
             }
         }
         return -1; // no unique values
-    }
-
-    static int count(int num, int[] arr) {
-        int counter = 0;
-        for (int i = 0; i < arr.length; i++) {
-            if (num == arr[i]) {
-                counter++;
-            }
-        }
-        return counter;
     }
 }
