@@ -24,7 +24,7 @@ public class singleNum {
         return x;
     }
 
-    // iterative solution (mine)
+    // iterative solution 
     static int getSingleNumB(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
             if (!isDuplicate(arr[i], arr)) {
@@ -47,7 +47,7 @@ public class singleNum {
         return false;
     }
 
-    // DS HashMap solution (mine)
+    // DS HashMap solution 
     static int getSingleNumC(int[] arr) {
         Map<Integer, Integer> numMap = new HashMap<>();
         for (int i = 0; i < arr.length; i++) {
