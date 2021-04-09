@@ -6,7 +6,7 @@ import java.util.*;
     the value that does NOT repeat.
 */
 
-public class singleNum {
+public class SingleNum {
     public static void main (String[] args) {
         int[] nums = {5, 4, 5, 3, 4, 3, 6}; // answer: 6
 

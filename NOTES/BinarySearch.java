@@ -10,30 +10,28 @@ public class BinarySearch {
         sort(nums);
         
         // step 2: implement Binary Search
-        int start = 0;
-        int end = nums.length-1;
-        System.out.println("start: " + start);
-        System.out.println("end: " + end);
-        System.out.println("Index for " + num + " is: " + binarySearch(nums, num, start, end));
+        System.out.println("Index for " + num + " is: " + binarySearch(nums, num));
         
     }
 
-    static int binarySearch(int[] arr, int target, int left, int right) {
-        // recursive binary search
-        if (right >= left) {
-            int mid = (left + right)/2; 
+    static int binarySearch(int[] arr, int target) {
+        int mid, low, high;
+        low = 0;
+        high = arr.length-1;
 
-            if (arr[mid] == target) {
-                return mid;
+        while (high >= low) {
+            mid = (high+low) / 2;
+            if (arr[mid] < target) {
+                low = mid+1;
             }
-            if (arr[mid] > target) {
-                return binarySearch(arr, target, left, mid-1);
+            else if (arr[mid] > target) {
+                high = mid-1;
             }
             else {
-                return binarySearch(arr, target, mid+1, right);
+                return mid;
             }
         }
-        return -1; // error - not found
+        return -1;
     }
 
     static void sort(int[] arr) {
