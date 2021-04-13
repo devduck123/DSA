@@ -20,7 +20,8 @@ public class BinarySearch {
         high = arr.length-1;
 
         while (high >= low) {
-            mid = (high+low) / 2;
+            // mid = (high+low) / 2;
+            mid = low + (high-low) / 2; // optimal 
             if (arr[mid] < target) {
                 low = mid+1;
             }
