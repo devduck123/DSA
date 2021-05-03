@@ -79,9 +79,12 @@ public class QuickSort {
 
 
 /*
-    QuickSort Overview
-    - repeatedly partitions input into low and high
-        - chooses a pivot to divide into low and high (middle)
+ * QuickSort Overview
+    - repeatedly partitions array into low and high
+        - chooses a pivot to divide partitions into low and high (based on middle value)
+        - low partition contains ONLY values <= partition
+        - high partition contains ONLY values > partition
     - recursively sort each part until a partition has 1 or 0 elements 
-    - => sorted
+    - O(NlogN) w/ a pivot yielding two equal-sized parts
+    - worst-case: O(N^2) => scenario of always choosing smallest element as pivot
 */
