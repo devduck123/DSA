@@ -25,7 +25,7 @@ public class LinkedList {
         Node newNode = new Node(data);
 
         if (head == null) {
-            head = newNode; 
+            head = newNode;
             return;
         }
 
@@ -40,11 +40,11 @@ public class LinkedList {
         last.next = newNode;
     }
 
-    public void insertAt(int index, int data) {
+    public void insertAtIndex(int index, int data) {
         if (index == 0) {
             insertAtBeginning(data);
         }
-
+            
         if (index > 0) {
             Node newNode = new Node(data);
             Node currNode = head;
@@ -81,12 +81,12 @@ public class LinkedList {
 
         Node curr = head;
 
-        if (index ==0) {
+        if (index == 0) {
             head = curr.next;
             return;
         }
 
-        for (int i = 0; curr != null && i < index-1; i++) {
+        for (int i = 0; curr != null && i < index - 1; i++) {
             curr = curr.next;
         }
 
@@ -97,6 +97,27 @@ public class LinkedList {
         Node nextNode = curr.next.next;
 
         curr.next = nextNode;
+    }
+
+    public void removeAtKey(int key) {
+        Node curr = head;
+        Node prev = null;
+        boolean found = false;
+
+        while (curr != null && !found) {
+            if (curr.data == key && curr == head) {
+                found = true;
+                head = curr.next;
+            }
+            else if (curr.data == key) {
+                found = true;
+                prev.next = curr.next;
+            }
+            else {
+                prev = curr;
+                curr = curr.next;
+            }
+        }
     }
 
     public Node search(int key) {
@@ -112,7 +133,7 @@ public class LinkedList {
 
     public void print() {
         Node curr = head;
-        
+
         System.out.print("List: ");
         while (curr != null) {
             System.out.print(curr.data + " ");
@@ -131,22 +152,22 @@ public class LinkedList {
         list.head = one;
         one.next = two;
         two.next = three;
-        
+
         list.print(); // 10 20 30
-        
+
         list.insertAtBeginning(0);
 
-        list.print(); // 0 10 20 30 
-        
+        list.print(); // 0 10 20 30
+
         list.insertAtEnd(40);
-            
+
         list.print(); // 0 10 20 30 40
 
         list.insertAtEnd(50);
 
         list.print(); // 0 10 20 30 40 50
 
-        list.insertAt(1, 15);
+        list.insertAtIndex(1, 15);
 
         list.print(); // 0 15 10 20 30 40 50
 
@@ -159,5 +180,9 @@ public class LinkedList {
         list.removeAtIndex(3);
 
         list.print(); // 0 15 10 25 30 40 50
+
+        list.removeAtKey(40); 
+
+        list.print(); // 0 15 10 25 30 50
     }
 }
